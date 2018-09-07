@@ -154,8 +154,9 @@ public class Booking {
             throw new RuntimeException("Booking State is not Checked In."); //Throw a RunTimeException if the Booking State is not checked in
         }
     }
-
-
+	
+	/*The functionality of checkOut() function was implemented by Kasun Amarasinghe.
+	  The functionality was implemented according to the given guidelines.*/
 	public void checkOut() {
         //Check if the Booking State is checked in or not
         if (isCheckedIn()) {
