@@ -146,6 +146,10 @@ public class Booking {
 
 	public void addServiceCharge(ServiceType serviceType, double cost) {
 		// TODO Auto-generated method stub
+		if (isCheckedIn()) {
+            ServiceCharge latestServiceCharge = new ServiceCharge(serviceType, cost);
+            this.charges.add(latestServiceCharge);
+        }
 	}
 
 
