@@ -131,7 +131,8 @@ public class Booking {
 		return Collections.unmodifiableList(charges);
 	}
 
-
+	/*The functionality of checkIn() function was implemented by Kasun Amarasinghe.
+	  The functionality was implemented according to the given guidelines.*/
 	public void checkIn() {
         //Check if the Booking State is pending or not
         if (isPending()) {
