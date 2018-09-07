@@ -145,14 +145,14 @@ public class Booking {
 
 
 	public void addServiceCharge(ServiceType serviceType, double cost) {
-		// TODO Auto-generated method stub
-		if (isCheckedIn()) {
-            ServiceCharge latestServiceCharge = new ServiceCharge(serviceType, cost);
-            this.charges.add(latestServiceCharge);
+        //Check if the Booking State is checked in or not
+        if (isCheckedIn()) {
+            ServiceCharge latestServiceCharge = new ServiceCharge(serviceType, cost); //Create a new ServiceCharge
+            this.charges.add(latestServiceCharge); //Add the created ServiceCharge to the charges list
         } else {
-            throw new RuntimeException("Booking State is not Checked In.");
+            throw new RuntimeException("Booking State is not Checked In."); //Throw a RunTimeException if the Booking State is not checked in
         }
-	}
+    }
 
 
 	public void checkOut() {
