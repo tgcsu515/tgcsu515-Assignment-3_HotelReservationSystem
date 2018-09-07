@@ -161,6 +161,8 @@ public class Booking {
 		if (isCheckedIn()) {
             this.room.checkout(this);
             this.state = State.CHECKED_OUT;
+        } else {
+            throw new RuntimeException("Booking State is not Checked In.");
         }
 	}
 
