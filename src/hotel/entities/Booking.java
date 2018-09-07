@@ -149,6 +149,8 @@ public class Booking {
 		if (isCheckedIn()) {
             ServiceCharge latestServiceCharge = new ServiceCharge(serviceType, cost);
             this.charges.add(latestServiceCharge);
+        } else {
+            throw new RuntimeException("Booking State is not Checked In.");
         }
 	}
 
