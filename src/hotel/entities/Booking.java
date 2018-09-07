@@ -133,14 +133,14 @@ public class Booking {
 
 
 	public void checkIn() {
-		
-		if (isPending()) {
-            this.room.checkin();
-            this.state = State.CHECKED_IN;
+        //Check if the Booking State is pending or not
+        if (isPending()) {
+            this.room.checkin(); //Set the Room associated with booking state as OCCUPIED
+            this.state = State.CHECKED_IN; //Set the Booking State as CHECKED_IN
         } else {
-            throw new RuntimeException("Booking State is not pending.");
+            throw new RuntimeException("Booking State is not pending."); //Throw a RunTimeException if the Booking State is not pending
         }
-	}
+    }
 
 
 	public void addServiceCharge(ServiceType serviceType, double cost) {
