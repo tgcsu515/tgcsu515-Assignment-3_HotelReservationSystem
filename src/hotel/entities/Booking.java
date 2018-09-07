@@ -158,6 +158,10 @@ public class Booking {
 
 	public void checkOut() {
 		// TODO Auto-generated method stub
+		if (isCheckedIn()) {
+            this.room.checkout(this);
+            this.state = State.CHECKED_OUT;
+        }
 	}
 
 }
