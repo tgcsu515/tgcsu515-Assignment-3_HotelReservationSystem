@@ -143,7 +143,8 @@ public class Booking {
         }
     }
 
-
+	/*The functionality of addServiceCharge() function was implemented by Kasun Amarasinghe.
+	  The functionality was implemented according to the given guidelines.*/
 	public void addServiceCharge(ServiceType serviceType, double cost) {
         //Check if the Booking State is checked in or not
         if (isCheckedIn()) {
