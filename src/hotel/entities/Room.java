@@ -60,24 +60,24 @@ public class Room {
 
 
 	public Booking book(Guest guest, Date arrivalDate, int stayLength, int numberOfOccupants, CreditCard creditCard) {
-		// TODO Auto-generated method stub
+		
 		return null;		
 	}
 
-
+	// This method is implemented by Gurpreet Gill
 	public void checkin() {
-		// TODO Auto-generated method stub
+		// Check if ready state is ready or not?
 		if(isReady()){
-			this.state = State.OCCUPIED;
+			this.state = State.OCCUPIED; //set the room state occupied.
 		}
 		else{
-			throw new RuntimeException("Room state is already occupied!");
+			throw new RuntimeException("Room state is already occupied!");//show a runtime error message if the room state is already in occupied state.
 		}
 	}
 
 
 	public void checkout(Booking booking) {
-		// TODO Auto-generated method stub
+		
 	}
 
 
