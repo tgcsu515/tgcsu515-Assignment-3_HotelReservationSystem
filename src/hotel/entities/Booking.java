@@ -135,12 +135,12 @@ public class Booking {
 	  The functionality was implemented according to the given guidelines.*/
 	public void checkIn() {
         //Check if the Booking State is pending or not
-        if (isPending()) {
-            this.room.checkin(); //Set the Room associated with booking state as OCCUPIED
-            this.state = State.CHECKED_IN; //Set the Booking State as CHECKED_IN
-        } else {
-            throw new RuntimeException("Booking State is not pending."); //Throw a RunTimeException if the Booking State is not pending
+        if (!isPending()) {
+            String mesg = String.format("Booking: checkIn : bad state : %s", state);
+            throw new RuntimeException(mesg); //Throw a RunTimeException if the Booking State is not pending
         }
+        this.room.checkin(); //Set the Room associated with booking state as OCCUPIED
+        this.state = State.CHECKED_IN; //Set the Booking State as CHECKED_IN
     }
 
 	/*The functionality of addServiceCharge() function was implemented by Kasun Amarasinghe.
