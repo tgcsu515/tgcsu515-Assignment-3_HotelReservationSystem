@@ -47,7 +47,8 @@ public class RecordServiceCTL {
 		}
 	}
 	
-	
+	/*The functionality of serviceDetailsEntered() function was implemented by Kasun Amarasinghe.
+	  The functionality was implemented according to the given guidelines.*/
 	public void serviceDetailsEntered(ServiceType serviceType, double cost) {
 		//Throw a RunTimeException if the state is not equal to SERVICE
         if (state != State.SERVICE) {
