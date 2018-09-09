@@ -147,10 +147,9 @@ public class Booking {
 	  The functionality was implemented according to the given guidelines.*/
 	public void addServiceCharge(ServiceType serviceType, double cost) {
         //Check if the Booking State is checked in or not
-        if (isCheckedIn()) {
+        if (!isCheckedIn()) {
             String mesg = String.format("Booking: addServiceCharge : bad state : %s", state);
             throw new RuntimeException(mesg); //Throw a RunTimeException if the Booking State is not checked in
-
         }
         ServiceCharge latestServiceCharge = new ServiceCharge(serviceType, cost); //Create a new ServiceCharge
         this.charges.add(latestServiceCharge); //Add the created ServiceCharge to the charges list
@@ -160,12 +159,12 @@ public class Booking {
 	  The functionality was implemented according to the given guidelines.*/
 	public void checkOut() {
         //Check if the Booking State is checked in or not
-        if (isCheckedIn()) {
-            this.room.checkout(this); //Set the Room associated with booking state as READY
-            this.state = State.CHECKED_OUT; //Set the Booking State as CHECKED_OUT
-        } else {
-            throw new RuntimeException("Booking State is not Checked In."); //Throw a RunTimeException if the Booking State is not checked in
+        if (!isCheckedIn()) {
+            String mesg = String.format("Booking: checkOut : bad state : %s", state);
+            throw new RuntimeException(mesg); //Throw a RunTimeException if the Booking State is not checked in     
         }
+        this.room.checkout(this); //Set the Room associated with booking state as READY
+        this.state = State.CHECKED_OUT; //Set the Booking State as CHECKED_OUT
     }
 
 }
