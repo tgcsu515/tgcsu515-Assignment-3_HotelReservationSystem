@@ -148,11 +148,12 @@ public class Booking {
 	public void addServiceCharge(ServiceType serviceType, double cost) {
         //Check if the Booking State is checked in or not
         if (isCheckedIn()) {
-            ServiceCharge latestServiceCharge = new ServiceCharge(serviceType, cost); //Create a new ServiceCharge
-            this.charges.add(latestServiceCharge); //Add the created ServiceCharge to the charges list
-        } else {
-            throw new RuntimeException("Booking State is not Checked In."); //Throw a RunTimeException if the Booking State is not checked in
+            String mesg = String.format("Booking: addServiceCharge : bad state : %s", state);
+            throw new RuntimeException(mesg); //Throw a RunTimeException if the Booking State is not checked in
+
         }
+        ServiceCharge latestServiceCharge = new ServiceCharge(serviceType, cost); //Create a new ServiceCharge
+        this.charges.add(latestServiceCharge); //Add the created ServiceCharge to the charges list
     }
 	
 	/*The functionality of checkOut() function was implemented by Kasun Amarasinghe.
