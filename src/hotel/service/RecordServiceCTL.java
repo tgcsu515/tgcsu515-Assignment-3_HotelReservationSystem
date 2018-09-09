@@ -49,14 +49,16 @@ public class RecordServiceCTL {
 	
 	
 	public void serviceDetailsEntered(ServiceType serviceType, double cost) {
-		if (state != State.SERVICE) {
-            String mesg = String.format("RecordServiceCTL: serviceDetailsEntered : bad state : %s", state);
+		//Throw a RunTimeException if the state is not equal to SERVICE
+        if (state != State.SERVICE) {
+            String mesg = String.format("RecordServiceCTL: serviceDetailsEntered : bad state : %s", state); //Create the exception message
             throw new RuntimeException(mesg);
         }
-        hotel.addServiceCharge(roomNumber, serviceType, cost);
+        hotel.addServiceCharge(roomNumber, serviceType, cost); //Call addServiceCharge() method of Hotel class
+        //Call displayServiceChargeMessage() method of RecordServiceUI class
         recordServiceUI.displayServiceChargeMessage(roomNumber, cost, "This is the Service Description");
-        state=State.COMPLETED;
-        recordServiceUI.setState(RecordServiceUI.State.COMPLETED); 
+        state = State.COMPLETED; //Set the State to COMPLETED
+        recordServiceUI.setState(RecordServiceUI.State.COMPLETED); //Set the RecordServiceUI State to COMPLETED   
 	}
 
 
