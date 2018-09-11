@@ -67,8 +67,8 @@ public class Room {
 	// This method is implemented by Gurpreet Gill
 	public void checkin() {
 		// Check if ready state is ready or not?
-		if(isReady()){
-			this.state = State.OCCUPIED; //set the room state occupied.
+		if(state == Room.State.READY){
+			state = Room.State.OCCUPIED; //set the room state occupied.
 		}
 		else{
 			throw new RuntimeException("Room state is already occupied!");//show a runtime error message if the room state is already in occupied state.
