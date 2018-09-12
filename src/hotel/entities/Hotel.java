@@ -87,10 +87,13 @@ public class Hotel {
 	
 	public long book(Room room, Guest guest, Date arrivalDate, int stayLength, int occupantNumber,CreditCard creditCard) 
 	{
+		Booking activeBooking = room.book(guest, arrivalDate, stayLength, occupantNumber, creditCard);
+        long confirmationNumber = activeBooking.getConfirmationNumber();
+        bookingsByConfirmationNumber.put(Long.valueOf(confirmationNumber), activeBooking);
+        return confirmationNumber;
 			
 	}
-
-
+    
 	public void checkin(long confirmationNumber)
 	{
 	
