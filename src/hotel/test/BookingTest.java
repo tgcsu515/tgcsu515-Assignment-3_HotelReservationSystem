@@ -92,4 +92,15 @@ public class BookingTest {
         assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
     }
 	
+	/*Test of checkOut method of Booking class*/
+    @Test
+    public void testCheckOut() {
+        String expectedBookingState = "CHECKED_OUT"; //Define expected result
+        bookingObj.setState();
+        bookingObj.checkOut(); //Call the function
+        String actualBookingState = bookingObj.getState(); //Get the actual result
+        assertEquals(expectedBookingState, actualBookingState); //Compare the  expected result with the actual result
+
+    }
+	
 }

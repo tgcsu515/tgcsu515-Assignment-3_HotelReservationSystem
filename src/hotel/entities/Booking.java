@@ -110,6 +110,17 @@ public class Booking {
 	public CreditCard getCreditCard() {
 		return creditCard;
 	}
+	
+	public String getState()
+    {
+        return state.toString();
+    }
+
+	
+    public void setState()
+    {
+        this.state = State.CHECKED_IN;       
+    }
 
 
 	public boolean isPending() {
