@@ -67,6 +67,13 @@ public class Room {
 
 	public void checkin() {
 		// TODO Auto-generated method stub
+		if(isReady()){
+			this.state = State.OCCUPIED;
+		}
+		else
+		{
+			throw new RuntimeException("Room state is already occupied!");
+		}
 	}
 
 
