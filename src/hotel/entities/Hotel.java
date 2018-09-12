@@ -115,9 +115,16 @@ public class Hotel {
 	
 	public void checkout(int roomId) 
 	{
-		
-    }
+		// create the activeBooking  object to get the roomId
+		Booking activeBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));
+	    // check the room is booked or not
+        if (activeBooking == null) 
+		{
+        String message = String.format(" no booking found  for room id : %d", new Obj[] { Integer.valueOf(roomId) });
+        throw new RuntimeException(message); // throw the exception if the booking not found 
+        }
+        activeBooking.checkOut();
+        activeBookingsByRoomId.remove(Integer.valueOf(roomId)); // remove the booking from the list
+	}
 	
-
-
 }
