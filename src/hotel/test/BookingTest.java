@@ -1,0 +1,41 @@
+package hotel.entities;
+
+import hotel.credit.CreditCard;
+import hotel.credit.CreditCardType;
+import java.util.Date;
+import java.util.List;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class BookingTest {
+
+    //Define all the require variables
+    Booking bookingObj;
+    Guest newGuest;
+    Room newRoom;
+    Date currentDate;
+    int stayLength;
+    int noOfOccupants;
+    CreditCard newCreditCard;
+
+    @Before
+    public void setUp() {
+        //Create the testing backgroud
+        newGuest = new Guest("Peter Dawson", "Melbourne", 042345224);
+        newRoom = new Room(1102, RoomType.SINGLE);
+        Date arrivalDate = new Date();
+        stayLength = 2;
+        noOfOccupants = 1;
+        newCreditCard = new CreditCard(CreditCardType.VISA, 234688654, 248);
+        //Create an instance of Booking class using the above parameters
+        bookingObj = new Booking(newGuest, newRoom, arrivalDate, stayLength, noOfOccupants, newCreditCard);
+    }
+
+    @After
+    public void tearDown() {
+        bookingObj = null;
+    }
+	
+}
