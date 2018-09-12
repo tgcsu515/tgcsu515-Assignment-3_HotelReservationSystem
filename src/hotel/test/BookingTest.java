@@ -48,4 +48,18 @@ public class BookingTest {
         assertEquals(expectedBookingState, actualBookingState); //Compare the  expected result with the actual result
     }
 	
+	/*Test of RunTimeException in checkIn method of Booking class*/
+    @Test
+    public void testCheckInRunTimeException() {
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "Booking: checkIn : bad state : CHECKED_IN"; //Define expected result
+        try {
+            bookingObj.setState();
+            bookingObj.checkIn(); //Call the method
+        } catch (Exception ex) {
+            actualExceptionMessage = ex.getMessage(); //Get the actual result
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
+    }
+	
 }
