@@ -62,4 +62,34 @@ public class BookingTest {
         assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
     }
 	
+	/*Test of addServiceCharge method of Booking class*/
+    @Test
+    public void testAddServiceCharge() {
+        List<ServiceCharge> chargesList = null;
+        ServiceCharge currentServiceChargeObj = null;
+        String actualResult = "";
+
+        String expectedResult = "Service Type is ROOM_SERVICE and Service Charge is 200.0"; //Define expected result
+        bookingObj.setState();
+        bookingObj.addServiceCharge(ServiceType.ROOM_SERVICE, 200); //Call the method
+        chargesList = bookingObj.getCharges(); //Get the charges list
+        currentServiceChargeObj = chargesList.get(0); //Get the first item from the list
+        actualResult = "Service Type is " + currentServiceChargeObj.getType() + " and Service Charge is " + currentServiceChargeObj.getCost();
+        assertEquals(expectedResult, actualResult); //Compare the  expected result with the actual result
+    }
+	
+	
+    /*Test of RunTimeException in addServiceCharge method of Booking class*/
+    @Test
+    public void testAddServiceChargeRunTimeException() {
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "Booking: addServiceCharge : bad state : PENDING"; //Define expected result
+        try {
+            bookingObj.addServiceCharge(ServiceType.RESTAURANT, 100); //Call the method
+        } catch (Exception ex) {
+            actualExceptionMessage = ex.getMessage(); //Get actual result
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
+    }
+	
 }
