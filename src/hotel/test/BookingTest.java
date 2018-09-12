@@ -103,4 +103,16 @@ public class BookingTest {
 
     }
 	
+	/*Test of RunTimeException in checkOut method of Booking class*/
+    @Test
+    public void testCheckOutRunTimeException() {
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "Booking: checkOut : bad state : PENDING"; //Define expected result
+        try {
+            bookingObj.checkOut(); //Call the function
+        } catch (Exception ex) {
+            actualExceptionMessage = ex.getMessage(); //Get the actual result
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
+    }
 }
