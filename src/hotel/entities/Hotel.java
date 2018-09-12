@@ -98,10 +98,11 @@ public class Hotel {
 	public void checkin(long confirmationNumber)
 	{
 		Booking activeBooking = (Booking)bookingsByConfirmationNumber.get(Long.valueOf(confirmationNumber));
-        if (activeBooking == null) 
+        //check the room is booked or not
+		if (activeBooking == null) 
 		{
 			String message = String.format("Hotel: checkin: No booking found for confirmation number %d", new Object[] { Long.valueOf(confirmationNumber) });
-            throw new RuntimeException(message);
+            throw new RuntimeException(message); // throw the exception if the booking not found
         }
         int roomId = activeBooking.getRoomId();
     
