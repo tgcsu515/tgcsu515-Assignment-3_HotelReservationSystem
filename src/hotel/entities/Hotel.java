@@ -85,27 +85,39 @@ public class Hotel {
 	}
 
 	
-	public long book(Room room, Guest guest, 
-			Date arrivalDate, int stayLength, int occupantNumber,
-			CreditCard creditCard) {
-		// TODO Auto-generated method stub
-		return 0L;		
+	public long book(Room room, Guest guest, Date arrivalDate, int stayLength, int occupantNumber,CreditCard creditCard) 
+	{
+			
+	}
+
+
+	public void checkin(long confirmationNumber)
+	{
+	
+	
+	}
+
+
+	public void addServiceCharge(int roomId, ServiceType serviceType, double cost)
+	{
+		// create the activeBooking  object to get the roomId
+        Booking activeBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));
+        // check the room is booked or not
+	    if (activeBooking == null) 
+	    {
+		    String message = String.format("no booking found  for room id : %d", new Obj[] { Integer.valueOf(roomId) });
+            throw new RuntimeException(message);// throw the exception if the booking not found
+        }
+        activeBooking.addServiceCharge(serviceType, cost);
+		
 	}
 
 	
-	public void checkin(long confirmationNumber) {
-		// TODO Auto-generated method stub
-	}
-
-
-	public void addServiceCharge(int roomId, ServiceType serviceType, double cost) {
-		// TODO Auto-generated method stub
-	}
-
+	public void checkout(int roomId) 
+	{
+		
+    }
 	
-	public void checkout(int roomId) {
-		// TODO Auto-generated method stub
-	}
 
 
 }
