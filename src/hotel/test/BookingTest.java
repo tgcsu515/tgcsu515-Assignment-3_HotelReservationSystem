@@ -32,10 +32,20 @@ public class BookingTest {
         //Create an instance of Booking class using the above parameters
         bookingObj = new Booking(newGuest, newRoom, arrivalDate, stayLength, noOfOccupants, newCreditCard);
     }
-
+	
+	
     @After
     public void tearDown() {
         bookingObj = null;
+    }
+	
+	/*Test of checkIn method of Booking class*/
+    @Test
+    public void testCheckIn() {
+        String expectedBookingState = "CHECKED_IN"; //Define expected result
+        bookingObj.checkIn(); //Call the method
+        String actualBookingState = bookingObj.getState(); //Get the current state of booking
+        assertEquals(expectedBookingState, actualBookingState); //Compare the  expected result with the actual result
     }
 	
 }
