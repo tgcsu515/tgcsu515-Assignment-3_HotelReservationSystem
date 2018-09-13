@@ -96,7 +96,7 @@ public class Hotel {
 	public void checkin(long confirmationNumber) {
 		Booking currentBooking = (Booking)bookingsByConfirmationNumber.get(Long.valueOf(confirmationNumber));//getting the confirmation number of booking
 		if (currentBooking == null){	//if block to check if the current booking is null
-			String exceptionMessage = String.format(:Hotel: checkin: No booking found for confirmation number %d", new Object[]{ Long.valueOf(confirmationNumber)});
+			String exceptionMessage = String.format("Hotel: checkin: No booking found for confirmation number %d", new Object[]{ Long.valueOf(confirmationNumber)});
 			throw new RunTimeException(exceptionMessage); //exception if the currentBooking is null
 		}
 		int roomId = currentBooking.getRoomId();
@@ -106,7 +106,13 @@ public class Hotel {
 
 
 	public void addServiceCharge(int roomId, ServiceType serviceType, double cost) {
-		// TODO Auto-generated method stub
+		Booking booking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));
+		if(booking == null){
+			String errorMessage = String.format("Hotel: checkout: no booking present for room id : %d", new Object[] { Integer.valueOf(roomId) });
+			throw new RuntimeException(errorMessage);
+		}
+		booking.checkOut();
+		activeBookingsByRoomId.remove(Integer.valueOf(roomId));
 	}
 
 	
