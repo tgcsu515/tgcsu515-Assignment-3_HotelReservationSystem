@@ -106,12 +106,12 @@ public class Hotel {
 
 
 	public void addServiceCharge(int roomId, ServiceType serviceType, double cost) {
-		Booking booking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));
-		if(booking == null){
+		Booking booking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));//getting roomId
+		if(booking == null){//if condition to check whether the room ID is null
 			String errorMessage = String.format("Hotel: checkout: no booking present for room id : %d", new Object[] { Integer.valueOf(roomId) });
-			throw new RuntimeException(errorMessage);
+			throw new RuntimeException(errorMessage);//if null then throw runtime exception
 		}
-		booking.checkOut();
+		booking.checkOut();//else proceed to checkout
 		activeBookingsByRoomId.remove(Integer.valueOf(roomId));
 	}
 
