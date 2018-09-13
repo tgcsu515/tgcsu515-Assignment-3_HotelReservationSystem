@@ -58,11 +58,11 @@ public class Room {
 		return state == State.READY;
 	}
 
-
+	// This method is implemented by Gurpreet Gill
 	public Booking book(Guest guest, Date arrivalDate, int stayLength, int numberOfOccupants, CreditCard creditCard) {
 		Booking booking = new Booking(guest, this, arrivalDate, stayLength, numberOfOccupants, creditCard);
-		bookings.add(booking);
-		return booking;		
+		bookings.add(booking);// insert data into dataset.
+		return booking; // return the dataset.
 	}
 
 	// This method is implemented by Gurpreet Gill
