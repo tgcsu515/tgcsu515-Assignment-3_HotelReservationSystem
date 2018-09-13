@@ -116,8 +116,12 @@ public class Hotel {
 
 	
 	public void checkout(int roomId) {
-		// TODO Auto-generated method stub
+		Booking currentBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));
+		if (currentBooking == null) {
+			String message = String.format("Hotel: checkout: no booking present for room id : %d", new Object[] { Integer.valueOf(roomId) });
+			throw new RuntimeException(message);
+		}
+		currentBooking.checkOut();
+		activeBookingsByRoomId.remove(Integer.valueOf(roomId));
 	}
-
-
 }
