@@ -94,10 +94,10 @@ public class Hotel {
 
 	
 	public void checkin(long confirmationNumber) {
-		Booking currentBooking = (Booking)bookingsByConfirmationNumber.get(Lomg.valueOf(confirmationNumber));
-		if (currentBooking == null){
+		Booking currentBooking = (Booking)bookingsByConfirmationNumber.get(Long.valueOf(confirmationNumber));//getting the confirmation number of booking
+		if (currentBooking == null){	//if block to check if the current booking is null
 			String exceptionMessage = String.format(:Hotel: checkin: No booking found for confirmation number %d", new Object[]{ Long.valueOf(confirmationNumber)});
-			throw new RunTimeException(exceptionMessage);
+			throw new RunTimeException(exceptionMessage); //exception if the currentBooking is null
 		}
 		int roomId = currentBooking.getRoomId();
 		currentBooking.checkIn();
