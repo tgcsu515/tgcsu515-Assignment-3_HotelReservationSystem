@@ -43,7 +43,6 @@ public class Room {
 	public boolean isReady() {
 		return state == State.READY;
 	}
-
 	// This method is implemented by Gurpreet Gill
 	public Booking book(Guest guest, Date arrivalDate, int stayLength, int numberOfOccupants, CreditCard creditCard) {
 		Booking booking = new Booking(guest, this, arrivalDate, stayLength, numberOfOccupants, creditCard);
@@ -61,6 +60,12 @@ public class Room {
 		}
 	}
 	public void checkout(Booking booking) {
+		if (state != State.OCCUPIED) {
+			String mesg = String.format("Room: checkout : bad state : %s", new Object[] { state });
+			throw new RuntimeException(mesg);
+		}
+		bookings.remove(booking);
+		state = State.READY;
 		
 	}
 }
