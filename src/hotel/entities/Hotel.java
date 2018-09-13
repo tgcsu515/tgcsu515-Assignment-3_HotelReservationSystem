@@ -86,9 +86,9 @@ public class Hotel {
 
 	
 	public long book(Room room, Guest guest, Date arrivalDate, int stayLength, int occupantNumber, CreditCard creditCard) {
-		Booking roomBooking = room.book(guest, arrivalDate, stayLength, occupantNumber, creditCard);
-		long confirmationNumber = roomBooking.getConfirmationNumber();
-		bookingsByConfirmationNumber.put(Long.valueOf(confirmationNumber), roomBooking);
+		Booking roomBooking = room.book(guest, arrivalDate, stayLength, occupantNumber, creditCard);	//pass the arguments to get the additional details for booking a room in hotel
+		long confirmationNumber = roomBooking.getConfirmationNumber();		//calling getConfirmationNumber method
+		bookingsByConfirmationNumber.put(Long.valueOf(confirmationNumber), roomBooking);	//pass the value of confirmationNumber
 		return confirmationNumber;		
 	}
 
