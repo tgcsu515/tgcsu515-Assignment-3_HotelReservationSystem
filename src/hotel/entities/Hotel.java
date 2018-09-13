@@ -111,8 +111,7 @@ public class Hotel {
 			String errorMessage = String.format("Hotel: checkout: no booking present for room id : %d", new Object[] { Integer.valueOf(roomId) });
 			throw new RuntimeException(errorMessage);//if null then throw runtime exception
 		}
-		booking.checkOut();//else proceed to checkout
-		activeBookingsByRoomId.remove(Integer.valueOf(roomId));
+		booking.addServiceCharge(serviceType, cost);//otherwise proceed further with service type and cost
 	}
 
 	
