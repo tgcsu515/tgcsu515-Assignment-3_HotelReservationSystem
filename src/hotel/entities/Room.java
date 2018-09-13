@@ -51,7 +51,7 @@ public class Room {
 	}
 	// This method is implemented by Gurpreet Gill
 	public void checkin() {
-		// Check if ready state is ready or not?
+		// Check if room state is ready or not?
 		if(state == State.READY){
 			state = State.OCCUPIED; //set the room state occupied.
 		}
@@ -59,13 +59,14 @@ public class Room {
 			throw new RuntimeException("Room state is already occupied!");//show a runtime error message if the room state is already in occupied state.
 		}
 	}
+	// This method is implemented by Gurpreet Gill
 	public void checkout(Booking booking) {
-		if (state != State.OCCUPIED) {
+		if (state != State.OCCUPIED) {// Check if room state is ready or not?
 			String mesg = String.format("Room: checkout : bad state : %s", new Object[] { state });
 			throw new RuntimeException(mesg);
 		}
-		bookings.remove(booking);
-		state = State.READY;
+		bookings.remove(booking);//Empty the booking dataset.
+		state = State.READY; //set the room state Ready.
 		
 	}
 }
