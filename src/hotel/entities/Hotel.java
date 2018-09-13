@@ -116,12 +116,12 @@ public class Hotel {
 
 	
 	public void checkout(int roomId) {
-		Booking currentBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));
-		if (currentBooking == null) {
+		Booking currentBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));//getting roomId
+		if (currentBooking == null) {//if condition to check whether the currentBooking is null
 			String message = String.format("Hotel: checkout: no booking present for room id : %d", new Object[] { Integer.valueOf(roomId) });
-			throw new RuntimeException(message);
+			throw new RuntimeException(message);//throwing run time exception
 		}
-		currentBooking.checkOut();
-		activeBookingsByRoomId.remove(Integer.valueOf(roomId));
+		currentBooking.checkOut();//calling checkout method
+		activeBookingsByRoomId.remove(Integer.valueOf(roomId));//if not null then removing the roomId by calling remove method
 	}
 }
