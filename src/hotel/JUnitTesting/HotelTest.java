@@ -21,4 +21,19 @@ public class HotelTest {
     public void tearDown() {
         hotelObj = null;
     }
+	
+	@Test
+    public void testBook(){
+        String expectedConfirmationNumber = "14820182001"; 
+        Guest newGuest = new Guest("David", "Melbourne", 041234566);
+        Room newRoom = new Room(2001, RoomType.DOUBLE);
+        Date arrivalDate = new Date();
+        int stayLength = 3;
+        int noOfOccupants = 2;
+        CreditCard newCreditCard = new CreditCard(CreditCardType.VISA, 234567788, 123);
+        Booking bookingObj = new Booking(newGuest, newRoom, arrivalDate, stayLength, noOfOccupants, newCreditCard);
+        long currentConfirmationNumber = bookingObj.getConfirmationNumber();
+        String actualConfirmationNumber = Long.toString(currentConfirmationNumber);
+        assertEquals(expectedConfirmationNumber, actualConfirmationNumber);
+    }
 }
