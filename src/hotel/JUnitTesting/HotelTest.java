@@ -36,4 +36,17 @@ public class HotelTest {
         String actualConfirmationNumber = Long.toString(currentConfirmationNumber);
         assertEquals(expectedConfirmationNumber, actualConfirmationNumber);
     }
+	
+	@Test
+    public void testCheckinRunTimeException(){
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "Current Booking is null";
+        try{
+            hotelObj.checkin(0);
+        }
+        catch(Exception ex){
+            actualExceptionMessage = ex.getMessage();
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage);         
+    }
 }
