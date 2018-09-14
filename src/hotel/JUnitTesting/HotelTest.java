@@ -49,4 +49,17 @@ public class HotelTest {
         }
         assertEquals(expectedExceptionMessage, actualExceptionMessage);         
     }
+	
+	@Test
+    public void testCheckoutRunTimeException(){
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "Hotel: checkout: no booking present for room id";
+        try{
+            hotelObj.checkout(0);
+        }
+        catch(Exception e){
+            actualExceptionMessage = e.getMessage();
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage);
+    }
 }
