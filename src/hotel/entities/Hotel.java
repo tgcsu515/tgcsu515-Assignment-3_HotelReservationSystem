@@ -96,7 +96,7 @@ public class Hotel {
 	public void checkin(long confirmationNumber) {
 		Booking currentBooking = (Booking)bookingsByConfirmationNumber.get(Long.valueOf(confirmationNumber));//getting the confirmation number of booking
 		if (currentBooking == null){	//if block to check if the current booking is null
-			String exceptionMessage = String.format("Hotel: checkin: No booking found for confirmation number %d", new Object[]{ Long.valueOf(confirmationNumber)});
+			String exceptionMessage = String.format("Current Booking is null");
 			throw new RunTimeException(exceptionMessage); //exception if the currentBooking is null
 		}
 		int roomId = currentBooking.getRoomId();
@@ -108,7 +108,7 @@ public class Hotel {
 	public void addServiceCharge(int roomId, ServiceType serviceType, double cost) {
 		Booking booking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));//getting roomId
 		if(booking == null){//if condition to check whether the room ID is null
-			String errorMessage = String.format("Hotel: checkout: no booking present for room id : %d", new Object[] { Integer.valueOf(roomId) });
+			String errorMessage = String.format("Hotel: checkout: no booking present for room id");
 			throw new RuntimeException(errorMessage);//if null then throw runtime exception
 		}
 		booking.addServiceCharge(serviceType, cost);//otherwise proceed further with service type and cost
@@ -118,7 +118,7 @@ public class Hotel {
 	public void checkout(int roomId) {
 		Booking currentBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));//getting roomId
 		if (currentBooking == null) {//if condition to check whether the currentBooking is null
-			String message = String.format("Hotel: checkout: no booking present for room id : %d", new Object[] { Integer.valueOf(roomId) });
+			String message = String.format("Hotel: checkout: no booking present for room id");
 			throw new RuntimeException(message);//throwing run time exception
 		}
 		currentBooking.checkOut();//calling checkout method
