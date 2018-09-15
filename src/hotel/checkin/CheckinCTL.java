@@ -81,6 +81,10 @@ public class CheckinCTL {
 	
 	public void checkInConfirmed(boolean confirmed) {
 		// TODO Auto-generated method stub
+		if (state != CheckinCTL.State.CONFIRMING) {
+			String mesg = String.format("CheckInCTL: checkInConfirmed : bad state : %s", new Object[] { state });
+			throw new RuntimeException(mesg);
+		}
 	}
 
 
