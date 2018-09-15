@@ -57,7 +57,7 @@ public class RecordServiceCTL {
         }
         hotel.addServiceCharge(roomNumber, serviceType, cost); //Call addServiceCharge() method of Hotel class
         //Call displayServiceChargeMessage() method of RecordServiceUI class
-        recordServiceUI.displayServiceChargeMessage(roomNumber, cost, "This is the Service Description");
+        recordServiceUI.displayServiceChargeMessage(roomNumber, cost, serviceType.getDescription());
         state = State.COMPLETED; //Set the State to COMPLETED
         recordServiceUI.setState(RecordServiceUI.State.COMPLETED); //Set the RecordServiceUI State to COMPLETED   
 	}
