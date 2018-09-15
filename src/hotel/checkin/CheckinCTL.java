@@ -91,6 +91,9 @@ public class CheckinCTL {
 			state = CheckinCTL.State.COMPLETED;
 			checkInUI.setState(CheckinUI.State.COMPLETED);
 		}
+		else {
+			cancel();
+		}
 	}
 
 
