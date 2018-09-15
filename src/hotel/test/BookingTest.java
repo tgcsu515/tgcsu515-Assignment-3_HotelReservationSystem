@@ -9,6 +9,13 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/*
+The following BookingTest class implements all the unit tests which were done to test the Booking.java.
+Unit tests were done to all the three methods which were implemeted by Kasun Amarasinghe.
+There are six unit test methods done in this Test file.
+The SetUp() method creates the testing environment of Booking class.
+*/
+
 public class BookingTest {
 
     //Define all the require variables
@@ -36,7 +43,7 @@ public class BookingTest {
 	
     @After
     public void tearDown() {
-        bookingObj = null;
+        bookingObj = null; //Set booking object to null
     }
 	
 	/*Test of checkIn method of Booking class*/
