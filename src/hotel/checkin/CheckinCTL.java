@@ -7,30 +7,23 @@ import hotel.entities.Hotel;
 import hotel.entities.Room;
 import hotel.utils.IOUtils;
 
-public class CheckinCTL {
-	
-	private enum State {CHECKING, CONFIRMING, CANCELLED, COMPLETED };
-	
+public class CheckinCTL {	
+	private enum State {CHECKING, CONFIRMING, CANCELLED, COMPLETED };	
 	private Hotel hotel;
 	private CheckinUI checkInUI;
 	private State state;
 	private Booking booking = null;
 	private long confirmationNumber;
-	
 
 	public CheckinCTL(Hotel hotel) {
 		this.hotel = hotel;
 		this.state = State.CHECKING;
 		this.checkInUI = new CheckinUI(this);
 	}
-
-	
 	public void run() {
 		IOUtils.trace("BookingCTL: run");
 		checkInUI.run();
 	}
-
-	
 	public void confirmationNumberEntered(long confirmationNumber) {
 		if (state != State.CHECKING) {
 			String mesg = String.format("CheckInCTL: confirmationNumberEntered : bad state : %s", state);
@@ -64,23 +57,18 @@ public class CheckinCTL {
 			else {
 				Guest guest = booking.getGuest();
 				CreditCard card = booking.getCreditCard();
-				
 				checkInUI.displayCheckinMessage(
 						room.getDescription(), room.getId(),
 						booking.getArrivalDate(), booking.getStayLength(), 
 						guest.getName(),
 						card.getVendor(), card.getNumber(),
-						booking.getConfirmationNumber());	
-				
+						booking.getConfirmationNumber());
 				state = State.CONFIRMING;
 				checkInUI.setState(CheckinUI.State.CONFIRMING);
 			}
 		}
 	}
-
-	
 	public void checkInConfirmed(boolean confirmed) {
-		// TODO Auto-generated method stub
 		if (state != CheckinCTL.State.CONFIRMING) {
 			String mesg = String.format("CheckInCTL: checkInConfirmed : bad state : %s", new Object[] { state });
 			throw new RuntimeException(mesg);
@@ -95,17 +83,12 @@ public class CheckinCTL {
 			cancel();
 		}
 	}
-
-
 	public void cancel() {
 		checkInUI.displayMessage("Checking in cancelled");
 		state = State.CANCELLED;
 		checkInUI.setState(CheckinUI.State.CANCELLED);
 	}
-	
-	
 	public void completed() {
 		checkInUI.displayMessage("Checking in completed");
 	}
-
 }
