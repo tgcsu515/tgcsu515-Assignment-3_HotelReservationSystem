@@ -85,6 +85,12 @@ public class CheckinCTL {
 			String mesg = String.format("CheckInCTL: checkInConfirmed : bad state : %s", new Object[] { state });
 			throw new RuntimeException(mesg);
 		}
+		if (confirmed) {
+			hotel.checkin(confirmationNumber);
+			checkInUI.displayMessage("Check in confirmed");
+			state = CheckinCTL.State.COMPLETED;
+			checkInUI.setState(CheckinUI.State.COMPLETED);
+		}
 	}
 
 
