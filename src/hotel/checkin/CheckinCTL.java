@@ -68,14 +68,15 @@ public class CheckinCTL {
 			}
 		}
 	}
+	// This method is implemented by Gurpreet Gill
 	public void checkInConfirmed(boolean confirmed) {
-		if (state != CheckinCTL.State.CONFIRMING) {
+		if (state != CheckinCTL.State.CONFIRMING) { // check the state of the CheckinCTL.
 			String mesg = String.format("CheckInCTL: checkInConfirmed : bad state : %s", new Object[] { state });
-			throw new RuntimeException(mesg);
+			throw new RuntimeException(mesg);// throw an exception message
 		}
-		if (confirmed) {
-			hotel.checkin(confirmationNumber);
-			checkInUI.displayMessage("Check in confirmed");
+		if (confirmed) { //check the confirmation.
+			hotel.checkin(confirmationNumber); //set the confirmation number
+			checkInUI.displayMessage("Check in confirmed"); //Display the confirmation message
 			state = CheckinCTL.State.COMPLETED;
 			checkInUI.setState(CheckinUI.State.COMPLETED);
 		}
