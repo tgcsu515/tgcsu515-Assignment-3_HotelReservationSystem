@@ -87,7 +87,7 @@ public class Hotel {
 	
 	public long book(Room room, Guest guest, Date arrivalDate, int stayLength, int occupantNumber,CreditCard creditCard) 
 	{
-		Booking currentBooking = room.book(guest, arrivalDate, stayLength, occupantNumber, creditCard);
+		Booking currentBooking = room.book(guest, arrivalDate, stayLength, occupantNumber, creditCard);// create the currentbooking object to get the booking detail
 		//get the confirmation number
         long confirmationNumber = currentBooking.getConfirmationNumber();
         bookingsByConfirmationNumber.put(Long.valueOf(confirmationNumber), currentBooking);
@@ -97,6 +97,7 @@ public class Hotel {
     
 	public void checkin(long confirmationNumber)
 	{
+		// create the currentbooking object to get the confirmation number
 		Booking currentBooking = (Booking)bookingsByConfirmationNumber.get(Long.valueOf(confirmationNumber));
         //check the room is booked or not
 		if (currentBooking == null) 
@@ -104,10 +105,10 @@ public class Hotel {
 			String message = String.format("Hotel: checkin: No booking found for confirmation number %d", new Object[] { Long.valueOf(confirmationNumber) });
             throw new RuntimeException(message); // throw the exception if the booking not found
         }
-        int roomId = currentBooking.getRoomId();
+        int roomId = currentBooking.getRoomId(); // get the room id 
     
-        currentBooking.checkIn();
-        activeBookingsByRoomId.put(Integer.valueOf(roomId), currentBooking);
+        currentBooking.checkIn(); // call the checkin method
+        activeBookingsByRoomId.put(Integer.valueOf(roomId), currentBooking); // put the roomid  and current booking 
 	
 	
 	}
@@ -138,8 +139,8 @@ public class Hotel {
         String message = String.format(" no booking found  for room id : %d", new Obj[] { Integer.valueOf(roomId) });
         throw new RuntimeException(message); // throw the exception if the booking not found 
         }
-        currentBooking.checkOut();
-        activeBookingsByRoomId.remove(Integer.valueOf(roomId)); // remove the booking from the list
+        currentBooking.checkOut(); // call the checkout method
+        activeBookingsByRoomId.remove(Integer.valueOf(roomId)); // remove the roomId  from the list
 	}
 	
 }
