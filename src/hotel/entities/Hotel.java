@@ -76,7 +76,7 @@ public class Hotel {
 				return room;
 			}			
 		}
-		return null;
+		return null; 
 	}
 
 	
@@ -87,27 +87,27 @@ public class Hotel {
 	
 	public long book(Room room, Guest guest, Date arrivalDate, int stayLength, int occupantNumber,CreditCard creditCard) 
 	{
-		Booking activeBooking = room.book(guest, arrivalDate, stayLength, occupantNumber, creditCard);
+		Booking currentBooking = room.book(guest, arrivalDate, stayLength, occupantNumber, creditCard);
 		//get the confirmation number
-        long confirmationNumber = activeBooking.getConfirmationNumber();
-        bookingsByConfirmationNumber.put(Long.valueOf(confirmationNumber), activeBooking);
+        long confirmationNumber = currentBooking.getConfirmationNumber();
+        bookingsByConfirmationNumber.put(Long.valueOf(confirmationNumber), currentBooking);
         return confirmationNumber; // return the confirmation number
 			
 	}
     
 	public void checkin(long confirmationNumber)
 	{
-		Booking activeBooking = (Booking)bookingsByConfirmationNumber.get(Long.valueOf(confirmationNumber));
+		Booking currentBooking = (Booking)bookingsByConfirmationNumber.get(Long.valueOf(confirmationNumber));
         //check the room is booked or not
-		if (activeBooking == null) 
+		if (currentBooking == null) 
 		{
 			String message = String.format("Hotel: checkin: No booking found for confirmation number %d", new Object[] { Long.valueOf(confirmationNumber) });
             throw new RuntimeException(message); // throw the exception if the booking not found
         }
-        int roomId = activeBooking.getRoomId();
+        int roomId = currentBooking.getRoomId();
     
-        activeBooking.checkIn();
-        activeBookingsByRoomId.put(Integer.valueOf(roomId), activeBooking);
+        currentBooking.checkIn();
+        activeBookingsByRoomId.put(Integer.valueOf(roomId), currentBooking);
 	
 	
 	}
@@ -116,14 +116,14 @@ public class Hotel {
 	public void addServiceCharge(int roomId, ServiceType serviceType, double cost)
 	{
 		// create the activeBooking  object to get the roomId
-        Booking activeBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));
+        Booking currentBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));
         // check the room is booked or not
-	    if (activeBooking == null) 
+	    if (currentBooking == null) 
 	    {
 		    String message = String.format("no booking found  for room id : %d", new Obj[] { Integer.valueOf(roomId) });
             throw new RuntimeException(message);// throw the exception if the booking not found
         }
-        activeBooking.addServiceCharge(serviceType, cost);
+        currentBooking.addServiceCharge(serviceType, cost);
 		
 	}
 
@@ -131,14 +131,14 @@ public class Hotel {
 	public void checkout(int roomId) 
 	{
 		// create the activeBooking  object to get the roomId
-		Booking activeBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));
+		Booking currentBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));
 	    // check the room is booked or not
-        if (activeBooking == null) 
+        if (currentBooking == null) 
 		{
         String message = String.format(" no booking found  for room id : %d", new Obj[] { Integer.valueOf(roomId) });
         throw new RuntimeException(message); // throw the exception if the booking not found 
         }
-        activeBooking.checkOut();
+        currentBooking.checkOut();
         activeBookingsByRoomId.remove(Integer.valueOf(roomId)); // remove the booking from the list
 	}
 	
