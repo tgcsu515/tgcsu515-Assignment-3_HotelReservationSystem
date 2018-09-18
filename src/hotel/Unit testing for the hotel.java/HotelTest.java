@@ -24,19 +24,20 @@ public class HotelTest {
         hotelObj = null; // put the hotelObj value to null
     }
 	
+	// created the testBook() method to test the Book() method 
 	@Test
     public void testBook(){
-        String expectedNumberForConfirmation = "18820182003"; 
-        Guest newGuest = new Guest("John", "Melbourne", 041234577);
-        Room newRoom = new Room(2003, RoomType.DOUBLE);
-        Date arrivalDate = new Date();
-        int stayLength = 3;
-        int occupantNumber = 2;
-        CreditCard newCreditCard = new CreditCard(CreditCardType.VISA, 234567788, 124);
-        Booking bookingObj = new Booking(newGuest, newRoom, arrivalDate, stayLength, occupantNumber, newCreditCard);
-        long currentConfirmationNumber = bookingObj.getConfirmationNumber();
-        String actualNumberForConfirmation = Long.toString(currentConfirmationNumber);
-        assertEquals(expectedNumberForConfirmation, actualNumberForConfirmation);
+        String expectedNumberForConfirmation = "18820182003"; //initialize the expected confirmation number
+        Guest newGuest = new Guest("John", "Melbourne", 041234577); // created the  object for Guest class and pass the values for the Guest parameter
+        Room newRoom = new Room(2003, RoomType.DOUBLE); // created the object for Room class and pass the values for the Guest parameter
+        Date arrivalDate = new Date(); //created the object for the  Date
+        int stayLength = 3; // initialize and define the stayLength variable  
+        int occupantNumber = 2; // initialize and define the occupantNumber variable
+        CreditCard newCreditCard = new CreditCard(CreditCardType.VISA, 234567788, 124);// create the object for the CreditCard class and pass the parameter values
+        Booking bookingObj = new Booking(newGuest, newRoom, arrivalDate, stayLength, occupantNumber, newCreditCard); // created the bookingObj for the booking class
+        long currentConfirmationNumber = bookingObj.getConfirmationNumber(); // get the confirmation number
+        String actualNumberForConfirmation = Long.toString(currentConfirmationNumber); // get the actual confirmation number
+        assertEquals(expectedNumberForConfirmation, actualNumberForConfirmation); // compare the results
     }
 	
 	@Test
