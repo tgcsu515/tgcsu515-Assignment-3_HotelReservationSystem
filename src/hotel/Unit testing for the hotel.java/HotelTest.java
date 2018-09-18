@@ -55,10 +55,11 @@ public class HotelTest {
         assertEquals(actualResult, expectedResult);  // compare the actual and expected result      
     }
 	
+	// test the addServiceCharge() method of the Hotel class
 	@Test
     public void testAddServiceChargeRunTimeException() {
         String actualResult = ""; // initialize the actualResult variable and define it empty 
-        String expectedResult = "no booking found  for specified room id";initialize the expectedResult variable and define the message 
+        String expectedResult = "no booking found  for specified room id";//initialize the expectedResult variable and define the message 
         try {
             hotelObj.addServiceCharge(0, ServiceType.BAR_FRIDGE, 200); // call the addServiceCharge method of the Hotel class
         }
@@ -69,17 +70,18 @@ public class HotelTest {
     
     }
 	
+	// test the checkout() method of the Hotel class
 	@Test
     public void testCheckoutRunTimeException(){
-        String actualResult = "";
-        String expectedResult = "no booking found  for room id";
+        String actualResult = ""; // initialize the actualResult variable and define it empty 
+        String expectedResult = "no booking found  for room id"; //initialize the expectedResult variable and define the message 
         try{
-            hotelObj.checkout(0);
+            hotelObj.checkout(0); // call the checkout() method of the Hotel class
         }
         catch(Exception ex){
-            actualResult = ex.getMessage();
+            actualResult = ex.getMessage();// get the exception message
         }
-        assertEquals(actualResult, expectedResult);
+        assertEquals(actualResult, expectedResult); // compare the actual and expected result
     }
 	
 	
