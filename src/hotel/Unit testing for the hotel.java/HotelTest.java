@@ -50,4 +50,17 @@ public class HotelTest {
         }
         assertEquals(actualResult, expectedResult);         
     }
+	
+	@Test
+    public void testCheckoutRunTimeException(){
+        String actualResult = "";
+        String expectedResult = "no booking found  for room id";
+        try{
+            hotelObj.checkout(0);
+        }
+        catch(Exception ex){
+            actualResult = ex.getMessage();
+        }
+        assertEquals(actualResult, expectedResult);
+    }
 }
