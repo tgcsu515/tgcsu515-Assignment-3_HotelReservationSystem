@@ -79,8 +79,14 @@ public class Room {
 	}
 
 
-	public void checkout(Booking booking) {
-		// TODO Auto-generated method stub
+	public void checkout(Booking booking) 
+	{
+		if (state != State.OCCUPIED) {
+			String mesg = String.format("Room: checkout : bad state : %s", new Object[] { state });
+			throw new RuntimeException(mesg);
+		}
+		bookings.remove(booking);
+		state = State.READY;
 	}
 
 
