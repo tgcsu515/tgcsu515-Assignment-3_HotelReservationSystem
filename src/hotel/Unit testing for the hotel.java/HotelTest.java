@@ -10,17 +10,18 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import hotel.credit.CreditCardType;
 
+// created the HotelTest class
 public class HotelTest {
-    Hotel hotelObj;
+    Hotel hotelObj; // created the hotelObj variable
 	
 	@Before
     public void setUp() {
-        hotelObj = new Hotel();
+        hotelObj = new Hotel(); // created the object for the Hotel class
     }
     
     @After
     public void tearDown() {
-        hotelObj = null;
+        hotelObj = null; // put the hotelObj value to null
     }
 	
 	@Test
