@@ -40,30 +40,32 @@ public class HotelTest {
         assertEquals(expectedNumberForConfirmation, actualNumberForConfirmation); // compare the results
     }
 	
+	
+	// test the checkin() method 
 	@Test
     public void testCheckinRunTimeException(){
-        String actualResult = "";
-        String expectedResult = "No booking found for confirmation number";
+        String actualResult = ""; // initialize the actual result variable and define it empty 
+        String expectedResult = "No booking found for confirmation number"; // initialize the expectedResult variable and define the message
         try{
-            hotelObj.checkin(0);
+            hotelObj.checkin(0); // call the checkin method 
         }
         catch(Exception e){
-            actualResult = e.getMessage();
+            actualResult = e.getMessage(); // get the exception message
         }
-        assertEquals(actualResult, expectedResult);         
+        assertEquals(actualResult, expectedResult);  // compare the actual and expected result      
     }
 	
 	@Test
     public void testAddServiceChargeRunTimeException() {
-        String actualResult = "";
-        String expectedResult = "no booking found  for specified room id"; 
+        String actualResult = ""; // initialize the actualResult variable and define it empty 
+        String expectedResult = "no booking found  for specified room id";initialize the expectedResult variable and define the message 
         try {
-            hotelObj.addServiceCharge(0, ServiceType.BAR_FRIDGE, 200); 
+            hotelObj.addServiceCharge(0, ServiceType.BAR_FRIDGE, 200); // call the addServiceCharge method of the Hotel class
         }
         catch (Exception e) {
-            actualResult = e.getMessage(); 
+            actualResult = e.getMessage(); // get the exception message
         }
-        assertEquals( actualResult, expectedResult); 
+        assertEquals( actualResult, expectedResult); // compare the actual and expected result
     
     }
 	
