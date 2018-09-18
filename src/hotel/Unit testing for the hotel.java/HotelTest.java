@@ -37,4 +37,17 @@ public class HotelTest {
         String actualNumberForConfirmation = Long.toString(currentConfirmationNumber);
         assertEquals(expectedNumberForConfirmation, actualNumberForConfirmation);
     }
+	
+	@Test
+    public void testCheckinRunTimeException(){
+        String actualResult = "";
+        String expectedResult = "No booking found for confirmation number";
+        try{
+            hotelObj.checkin(0);
+        }
+        catch(Exception e){
+            actualResult = e.getMessage();
+        }
+        assertEquals(actualResult, expectedResult);         
+    }
 }
