@@ -12,4 +12,14 @@ import hotel.credit.CreditCardType;
 
 public class HotelTest {
     Hotel hotelObj;
+	
+	@Before
+    public void setUp() {
+        hotelObj = new Hotel();
+    }
+    
+    @After
+    public void tearDown() {
+        hotelObj = null;
+    }
 }
