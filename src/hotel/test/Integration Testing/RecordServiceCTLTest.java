@@ -26,6 +26,16 @@ public class RecordServiceCTLTest {
         recordServiceCTLObj = null;
         recordServiceUIObj = null;
     }
+	
+	/*Test Record Service State after calling the serviceDetailsEntered method of RecordServiceCTL class*/
+    @Test
+    public void testRecordServiceStateChangeOfServiceDetailsEntered() {
+        String expectedRecordServiceState = "COMPLETED"; //Define expected result
+        recordServiceCTLObj.setState();
+        recordServiceCTLObj.serviceDetailsEntered(ServiceType.ROOM_SERVICE, 200);//Call the method
+        String actualRecordServiceState = recordServiceCTLObj.getState(); //Get the current state of booking
+        assertEquals(expectedRecordServiceState, actualRecordServiceState); //Compare the  expected result with the actual result
+    }
 
 
 
