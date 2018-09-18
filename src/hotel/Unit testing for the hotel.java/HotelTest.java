@@ -52,6 +52,20 @@ public class HotelTest {
     }
 	
 	@Test
+    public void testAddServiceChargeRunTimeException() {
+        String actualResult = "";
+        String expectedResult = "no booking found  for specified room id"; 
+        try {
+            hotelObj.addServiceCharge(0, ServiceType.BAR_FRIDGE, 200); 
+        }
+        catch (Exception e) {
+            actualResult = e.getMessage(); 
+        }
+        assertEquals( actualResult, expectedResult); 
+    
+    }
+	
+	@Test
     public void testCheckoutRunTimeException(){
         String actualResult = "";
         String expectedResult = "no booking found  for room id";
@@ -63,4 +77,6 @@ public class HotelTest {
         }
         assertEquals(actualResult, expectedResult);
     }
+	
+	
 }
