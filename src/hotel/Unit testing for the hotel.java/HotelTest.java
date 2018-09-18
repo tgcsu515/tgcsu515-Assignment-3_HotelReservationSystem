@@ -9,3 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import hotel.credit.CreditCardType;
+
+public class HotelTest {
+    Hotel hotelObj;
+}
