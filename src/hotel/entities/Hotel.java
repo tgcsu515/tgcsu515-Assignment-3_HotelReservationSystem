@@ -102,7 +102,7 @@ public class Hotel {
         //check the room is booked or not
 		if (currentBooking == null) 
 		{
-			String message = String.format("Hotel: checkin: No booking found for confirmation number");
+			String message = String.format("No booking found for confirmation number"); // display the message
             throw new RuntimeException(message); // throw the exception if the booking not found
         }
         int roomId = currentBooking.getRoomId(); // get the room id 
@@ -121,7 +121,7 @@ public class Hotel {
         // check the room is booked or not
 	    if (currentBooking == null) 
 	    {
-		    String message = String.format("no booking found  for room id ");
+		    String message = String.format("no booking found  for specified room id ");
             throw new RuntimeException(message);// throw the exception if the booking not found
         }
         currentBooking.addServiceCharge(serviceType, cost);
