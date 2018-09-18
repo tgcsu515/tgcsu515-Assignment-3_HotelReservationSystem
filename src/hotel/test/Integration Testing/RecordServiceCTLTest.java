@@ -47,7 +47,17 @@ public class RecordServiceCTLTest {
         assertEquals(expectedRecordServiceUIstate, actualRecordServiceUIState); //Compare the  expected result with the actual result
 
     }
-
-
-
+	
+	/*Test of RunTimeException in serviceDetailsEntered method of RecordServiceCTL class*/
+    @Test
+    public void testServiceDetailsEnteredRunTimeException() {
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "RecordServiceCTL: serviceDetailsEntered : bad state : ROOM"; //Define expected exception message
+        try {
+            recordServiceCTLObj.serviceDetailsEntered(ServiceType.ROOM_SERVICE, 200);//Call the method
+        } catch (Exception ex) {
+            actualExceptionMessage = ex.getMessage(); //Get the actual exception message
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
+    }
 }
