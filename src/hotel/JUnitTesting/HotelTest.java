@@ -62,4 +62,16 @@ public class HotelTest {
         }
         assertEquals(expectedExceptionMessage, actualExceptionMessage);
     }
+	
+	@Test
+    public void testAddServiceChargeRunTimeException() {
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "no booking present for room id"; //Define expected result
+        try {
+            hotelObj.addServiceCharge(0, ServiceType.BAR_FRIDGE, 100); //Call the method
+        } catch (Exception ex) {
+            actualExceptionMessage = ex.getMessage(); //Get actual result
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
+    }
 }
