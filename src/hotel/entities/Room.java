@@ -51,6 +51,9 @@ public class Room {
 	public String getState(){
             return state.toString(); //retuen current state.
      }
+	public void setState(){
+            this.state = State.OCCUPIED;       
+    }
 	// This method is implemented by Gurpreet Gill
 	public Booking book(Guest guest, Date arrivalDate, int stayLength, int numberOfOccupants, CreditCard creditCard) {
 		Booking booking = new Booking(guest, this, arrivalDate, stayLength, numberOfOccupants, creditCard);
