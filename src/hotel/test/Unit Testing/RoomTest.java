@@ -40,7 +40,7 @@ public class RoomTest {
         booking = null;
     }
 	
-    /*Test of checkIn method of Booking class*/
+    /*Test of checkIn method of Room class*/
     @Test
     public void testCheckIn() {
         String expectedResult = "OCCUPIED";
@@ -48,7 +48,7 @@ public class RoomTest {
         String actualResult = room.getState();
         assertEquals(expectedResult, actualResult);
     }
-	/*Test of RunTimeException in checkIn method of Booking class*/
+	/*Test of RunTimeException in checkIn method of Room class*/
     @Test
     public void testCheckInRunTimeException() {
         String actualMessage = "";
@@ -68,5 +68,17 @@ public class RoomTest {
         room.checkIn();
         String actualResult = room.getState();
         assertEquals(expectedResult, actualResult);
+    }
+	/*Test of RunTimeException in checkOut method of Room class*/
+    @Test
+    public void testCheckOutRunTimeException() {
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "Room: checkOut : bad state : READY"; //Define expected result
+        try {
+            room.checkOut(booking); //Call the function
+        } catch (Exception ex) {
+            actualExceptionMessage = ex.getMessage(); //Get the actual result
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
     }
 }
