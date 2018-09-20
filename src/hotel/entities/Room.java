@@ -47,8 +47,9 @@ public class Room {
 	public boolean isReady() {
 		return state == State.READY;
 	}
+	// This method is implemented by Gurpreet Gill
 	public String getState(){
-            return state.toString();
+            return state.toString(); //retuen current state.
      }
 	// This method is implemented by Gurpreet Gill
 	public Booking book(Guest guest, Date arrivalDate, int stayLength, int numberOfOccupants, CreditCard creditCard) {
