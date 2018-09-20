@@ -81,4 +81,19 @@ public class RoomTest {
         }
         assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
     }
+	//Test of book method, of class Room.
+    @Test
+    public void testBook() {
+        List<Booking> bookingList = null;
+        Booking currentBookingObj = null;
+        String actualResult = "";
+
+        String expectedResult = "Room id is 1102";
+        room.setState();
+        room.book(newGuestObj, arrivalDate, stayLength, noOfOccupants, newCreditCardObj);
+        bookingList = room.getBookingList(); //Get the booking list
+        currentBookingObj = bookingList.get(0); //Get the first item from the list
+        actualResult = "Room id is " + Integer.toString(currentBookingObj.getRoomId());
+        assertEquals(expectedResult, actualResult); //Compare the  expected result with the actual result
+    }
 }
