@@ -31,6 +31,9 @@ public class Room {
 	public RoomType getType() {
 		return roomType;
 	}
+	public List<Booking> getBookingList() {
+		return Collections.unmodifiableList(bookings);
+	}
 	public boolean isAvailable(Date arrivalDate, int stayLength) {
 		IOUtils.trace("Room: isAvailable");
 		for (Booking b : bookings) {
