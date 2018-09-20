@@ -50,9 +50,10 @@ public class Room {
 	// This method is implemented by Gurpreet Gill
 	public String getState(){
             return state.toString(); //retuen current state.
-     }
+    }
+	// This method is implemented by Gurpreet Gill
 	public void setState(){
-            this.state = State.OCCUPIED;       
+            this.state = State.OCCUPIED; //set state to OCCUPIED.
     }
 	// This method is implemented by Gurpreet Gill
 	public Booking book(Guest guest, Date arrivalDate, int stayLength, int numberOfOccupants, CreditCard creditCard) {
