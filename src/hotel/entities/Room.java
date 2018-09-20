@@ -47,6 +47,9 @@ public class Room {
 	public boolean isReady() {
 		return state == State.READY;
 	}
+	public String getState(){
+            return state.toString();
+     }
 	// This method is implemented by Gurpreet Gill
 	public Booking book(Guest guest, Date arrivalDate, int stayLength, int numberOfOccupants, CreditCard creditCard) {
 		Booking booking = new Booking(guest, this, arrivalDate, stayLength, numberOfOccupants, creditCard);
