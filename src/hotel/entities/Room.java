@@ -31,8 +31,9 @@ public class Room {
 	public RoomType getType() {
 		return roomType;
 	}
+	// This method is implemented by Gurpreet Gill
 	public List<Booking> getBookingList() {
-		return Collections.unmodifiableList(bookings);
+		return Collections.unmodifiableList(bookings); //return the booking list
 	}
 	public boolean isAvailable(Date arrivalDate, int stayLength) {
 		IOUtils.trace("Room: isAvailable");
