@@ -137,7 +137,32 @@ public class BookingCTL {
 
 
 	public void creditDetailsEntered(CreditCardType type, int number, int ccv) {
-		// TODO Auto-generated method stub
+		if (state != BookingCTL.State.CREDIT) {
+                String message = String.format("BookingCTL: bad state for booking time entered  ");
+                throw new RuntimeException(message);
+            }
+            CreditCard currentCreditCard = new CreditCard(type, number, ccv);
+
+         boolean approved = CreditAuthorizer.getInstance().authorize(currentCreditCard, cost);
+
+           if (!approved) {
+               String creditCardNotAuthorizedMessage = String.format("credit card number was not authorized for");
+             bookingUI.displayMessage(creditCardNotAuthorizedMessage);
+           } else {
+             long confirmationNumber = hotel.book(room, guest, arrivalDate, stayLength, occupantNumber, currentCreditCard);
+/            String roomDescription = room.getDescription();
+              int roomNumber = room.getId();
+             String guestName = guest.getName();
+             String creditCardVendor = currentCreditCard.getVendor();
+             int cardNumber = currentCreditCard.getNumber();
+
+              bookingUI.displayConfirmedBooking(roomDescription, roomNumber, arrivalDate, stayLength, guestName, creditCardVendor, cardNumber, cost, confirmationNumber);
+
+                state =BookingCTL.State.COMPLETED;
+                bookingUI.setState(BookingUI.State.COMPLETED);
+		   }
+        }
+
 	}
 
 
