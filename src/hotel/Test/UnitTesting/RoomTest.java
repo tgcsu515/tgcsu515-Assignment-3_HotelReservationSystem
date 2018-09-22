@@ -45,4 +45,17 @@ import org.junit.BeforeClass;
         String actualResult = room.getState();
         assertEquals(expectedResult, actualResult);
     }
+	 /*Test of RunTimeException in checkIn method of Booking class*/
+    @Test
+    public void testCheckInRunTimeException() {
+        String actualMessage = "";
+        String expectedMessage = "Room: checkIn : bad state : OCCUPIED"; 
+        try {
+            room.setState();
+            room.checkIn(); 
+        } catch (Exception ex) {
+            actualMessage = ex.getMessage(); 
+        }
+        assertEquals(expectedMessage, actualMessage);
+    }
 } 
