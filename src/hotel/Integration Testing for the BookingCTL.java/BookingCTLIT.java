@@ -3,7 +3,7 @@
   Lecturer Name : Recep ULUSOY
   This BookingCTLIT.java class test the three methods and show the pass result 100% */
   
-
+// import the library files
 import hotel.credit.CreditCardType;
 import hotel.entities.Hotel;
 import org.junit.After;
@@ -13,19 +13,19 @@ import static org.junit.Assert.*;
 
 public class BookingCTLIT {
 
-    BookingCTL currentBookingControl;
-    Hotel currentHotel;
+    BookingCTL currentBookingControl; // define the currentBookingControl variable
+    Hotel currentHotel; // define the currentHotal variable
 	
 	@Before
     public void setUp() {
-        currentHotel = new Hotel();
-        currentBookingControl = new BookingCTL(currentHotel);
+        currentHotel = new Hotel(); // created the currentHotel object of Hotel class
+        currentBookingControl = new BookingCTL(currentHotel); // created the currentBookingControl object of the BookingCTL class
     }
 
     @After
     public void tearDown() {
-        currentBookingControl = null;
-        currentHotel = null;
+        currentBookingControl = null; // initialize the currentBookingControl null
+        currentHotel = null; // initialize the currentHotel null
     }
 	
 	/*test of Booking Control State in creditDetailsEntered method of class
