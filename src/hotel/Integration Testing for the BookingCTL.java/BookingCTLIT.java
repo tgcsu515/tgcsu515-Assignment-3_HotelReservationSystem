@@ -41,3 +41,18 @@ public class BookingCTLIT {
         actualResult = currentBookingControl.getBookingUIState(); //Get the current state of booking UI
         assertEquals(expectedResult, actualResult); //Compare the  expected result with the actual result
     }
+	
+	@Test
+    
+    public void testcreditDetailsEnteredRunTimeException() {
+        String actualExceptionMessage = ""; // define the actual exception result
+        String expectedExceptionMessage = "BookingCTL: bookingTimesEntered : bad state";   // define the excepted exception variable
+        try {
+            currentBookingControl.creditDetailsEntered(CreditCardType.VISA, 11223, 111); 
+        } catch (Exception ex) { 
+            actualExceptionMessage = ex.getMessage(); //throw the exception
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expectedExceptionMessage with the actualExceptionMessage
+    }
+    
+}
