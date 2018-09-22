@@ -100,19 +100,19 @@ public class CheckoutCTL {
 	Method's functionality is according to the provided required software specialisation*/
 	public void creditDetailsEntered(CreditCardType type, int number, int ccv)
 	{
-		if (state != BookingCTL.State.CREDIT)
+		if (state != BookingCTL.State.CREDIT) //if condition to check the state
 		{
                 String message = String.format("BookingCTL: bookingTimesEntered : bad state : CREDIT");
-                throw new RuntimeException(message);
+                throw new RuntimeException(message);  //throwing exception
             }
-            CreditCard currentCreditCard = new CreditCard(type, number, ccv);
+            CreditCard currentCreditCard = new CreditCard(type, number, ccv);  //creating object of CreditCard
 
-            boolean approved = CreditAuthorizer.getInstance().authorize(currentCreditCard, cost);
+            boolean approved = CreditAuthorizer.getInstance().authorize(currentCreditCard, cost); //boolean function for the authorization of the card
 
-            if (!approved) 
+            if (!approved)  //if condition to check if the card not approved
 	    {
                 String creditCardNotAuthorizedMessage = String.format("The Credit Card Number was not Authorized.");
-                bookingUI.displayMessage(creditCardNotAuthorizedMessage);
+                bookingUI.displayMessage(creditCardNotAuthorizedMessage); //displaying error message
             } 
 	    else 
 	    {
