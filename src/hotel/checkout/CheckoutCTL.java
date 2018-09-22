@@ -96,7 +96,8 @@ public class CheckoutCTL {
 		}		
 	}
 
-	
+	/*This Method is coded by Arashdeep Kaur. 
+	Method's functionality is according to the provided required software specialisation*/
 	public void creditDetailsEntered(CreditCardType type, int number, int ccv)
 	{
 		if (state != BookingCTL.State.CREDIT)
