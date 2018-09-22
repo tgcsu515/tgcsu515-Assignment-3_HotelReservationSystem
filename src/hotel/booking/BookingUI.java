@@ -22,6 +22,11 @@ public class BookingUI {
 		this.bookingCTL = bookingCTL;
 		this.state = State.PHONE;
 	}
+	
+	//The getBookingUIState() has been created by author: Kanchan Bala. This method was required to perform the integration testing.
+	public String getBookingUIState(){
+            return state.toString();
+    }
 
 	
 	public void run() {
