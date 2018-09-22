@@ -126,7 +126,7 @@ public class CheckoutCTL {
                 bookingUI.displayConfirmedBooking(roomDescription, roomNumber, arrivalDate, stayLength, guestName, creditCardVendor, cardNumber, cost, confirmationNumber);
 
                 state =BookingCTL.State.COMPLETED; //setting the state of BookingCTL to complete
-                bookingUI.setState(BookingUI.State.COMPLETED); //setting the state of BookingUI to complete
+                bookingUI.setState(BookingUI.State.COMPLETED); //setting the state of BookingUI to completed
             }
 	}
 
