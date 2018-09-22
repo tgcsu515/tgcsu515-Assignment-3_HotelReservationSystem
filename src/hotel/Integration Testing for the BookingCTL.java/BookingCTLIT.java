@@ -1,3 +1,8 @@
+/* Student Name: Amandeep Kaur
+  Student Id: 11645658
+  Lecturer Name : Recep ULUSOY
+  This BookingCTLIT.java class test the three methods and show the pass result 100% */
+  
 
 import hotel.credit.CreditCardType;
 import hotel.entities.Hotel;
