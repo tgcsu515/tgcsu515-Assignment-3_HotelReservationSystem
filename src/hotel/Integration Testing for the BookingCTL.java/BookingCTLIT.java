@@ -22,6 +22,9 @@ public class BookingCTLIT {
         currentBookingControl = null;
         currentHotel = null;
     }
+	
+	/*test of Booking Control State in creditDetailsEntered method of class
+     BookingCTL */
 	@Test
     public void testSBookingControlStateOfcreditDetailsEntered() {
         String actualResult = "";
@@ -32,6 +35,8 @@ public class BookingCTLIT {
         assertEquals(expectedResult, actualResult); //Compare the  expected result with the actual result
     }
 	
+	/*test of Booking UI State in creditDetailsEntered method of class
+     BookingCTL */
 	@Test
     public void testSBookingUIStateOfcreditDetailsEntered() {
         String actualResult = ""; //Define actual result variable
@@ -41,6 +46,7 @@ public class BookingCTLIT {
         actualResult = currentBookingControl.getBookingUIState(); //Get the current state of booking UI
         assertEquals(expectedResult, actualResult); //Compare the  expected result with the actual result
     }
+	/* test to check the RunTimeEXception of class BookingCTL*/
 	
 	@Test
     
