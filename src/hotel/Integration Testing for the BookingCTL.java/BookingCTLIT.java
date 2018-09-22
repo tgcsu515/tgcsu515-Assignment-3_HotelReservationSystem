@@ -31,3 +31,13 @@ public class BookingCTLIT {
         actualResult = currentBookingControl.getBookingControlState(); //Get the current state of booking Control
         assertEquals(expectedResult, actualResult); //Compare the  expected result with the actual result
     }
+	
+	@Test
+    public void testSBookingUIStateOfcreditDetailsEntered() {
+        String actualResult = ""; //Define actual result variable
+        String expectedResult = "COMPLETED"; //Define expected result variable
+        currentBookingControl.setBookingControlState();
+        currentBookingControl.creditDetailsEntered(CreditCardType.MASTERCARD, 1236874922, 562);//Call the creditDetailsEntered() function
+        actualResult = currentBookingControl.getBookingUIState(); //Get the current state of booking UI
+        assertEquals(expectedResult, actualResult); //Compare the  expected result with the actual result
+    }
