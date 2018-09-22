@@ -39,14 +39,17 @@ public class BookingCTL {
 		state = State.PHONE;
 	}
 	
+	//The getBookingCTLState() has been created by author: Kanchan Bala. This method was required to perform the integration testing.
 	public String getBookingCTLState(){
             return state.toString();
     }
-        
+    
+	//The getCurrentBookingUIState() has been created by author: Kanchan Bala. This method was required to perform the integration testing.
     public String getCurrentBookingUIState(){
             return bookingUI.getBookingUIState();
     }
-        
+    
+	//The setBookingCTLState() has been created by author: Kanchan Bala. This method was required to perform the integration testing.
     public void setBookingCTLState(){
             this.state = State.CREDIT;
     }
