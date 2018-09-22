@@ -58,4 +58,12 @@ import org.junit.BeforeClass;
         }
         assertEquals(expectedMessage, actualMessage);
     }
+	 /*Test of checkOut method of Room class*/
+    @Test
+    public void testCheckOut() {
+        String expectedResult = "OCCUPIED";
+        room.checkIn();
+        String actualResult = room.getState();
+        assertEquals(expectedResult, actualResult);
+    }
 } 
