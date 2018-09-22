@@ -84,6 +84,7 @@ public class Hotel {
 		return bookingsByConfirmationNumber.get(confirmationNumber);
 	}
 
+	/* The book() has been implemented by author: Kanchan Bala. The functionality of this method is done by following the given software specifications*/
 	
 	public long book(Room room, Guest guest, Date arrivalDate, int stayLength, int occupantNumber, CreditCard creditCard) {
 		Booking roomBooking = room.book(guest, arrivalDate, stayLength, occupantNumber, creditCard);	//pass the arguments to get the additional details for booking a room in hotel
@@ -92,7 +93,7 @@ public class Hotel {
 		return confirmationNumber;		
 	}
 
-	
+	/* The checkin() has been implemented by author: Kanchan Bala. The functionality of this method is done by following the given software specifications*/
 	public void checkin(long confirmationNumber) {
 		Booking currentBooking = (Booking)bookingsByConfirmationNumber.get(Long.valueOf(confirmationNumber));//getting the confirmation number of booking
 		if (currentBooking == null){	//if block to check if the current booking is null
@@ -104,7 +105,7 @@ public class Hotel {
 		activeBookingsByRoomId.put(Integer.valueOf(roomId), currentBooking);
 	}
 
-
+	/* The addServiceCharge() has been implemented by author: Kanchan Bala. The functionality of this method is done by following the given software specifications*/
 	public void addServiceCharge(int roomId, ServiceType serviceType, double cost) {
 		Booking booking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));//getting roomId
 		if(booking == null){//if condition to check whether the room ID is null
@@ -114,7 +115,7 @@ public class Hotel {
 		booking.addServiceCharge(serviceType, cost);//otherwise proceed further with service type and cost
 	}
 
-	
+	/* The checkout() has been implemented by author: Kanchan Bala. The functionality of this method is done by following the given software specifications*/
 	public void checkout(int roomId) {
 		Booking currentBooking = (Booking)activeBookingsByRoomId.get(Integer.valueOf(roomId));//getting roomId
 		if (currentBooking == null) {//if condition to check whether the currentBooking is null
