@@ -24,14 +24,12 @@ public class BookingCTLIT {
     public void setUp() {
         hotelObj = new Hotel();
         bookingUIObj = new BookingUI(bookingCTLObj);
-        //bookingObj = new BookingObj();
         Guest newGuest = new Guest("Peter Dawson", "Melbourne", 042345224);
         Room newRoom = new Room(1102, RoomType.SINGLE);
         Date arrivalDate = new Date();
         int stayLength = 2;
         int noOfOccupants = 1;
         CreditCard newCreditCard = new CreditCard(CreditCardType.VISA, 234688654, 248);
-        //Create an instance of Booking class using the above parameters
         bookingObj = new Booking(newGuest, newRoom, arrivalDate, stayLength, noOfOccupants, newCreditCard);
         bookingCTLObj = new BookingCTL(hotelObj);
         
@@ -42,5 +40,17 @@ public class BookingCTLIT {
         bookingCTLObj = null;
         bookingUIObj = null;
         bookingObj = null;
+    }
+	
+	@Test 
+    public void testcreditDetailsEnteredRunTimeException() {
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "BookingCTL: bookingTimesEntered : bad state : CREDIT";  
+        try {
+            bookingCTLObj.creditDetailsEntered(CreditCardType.VISA, 11223, 111); 
+        } catch (Exception ex) {
+            actualExceptionMessage = ex.getMessage();  
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage);  
     }
 }
