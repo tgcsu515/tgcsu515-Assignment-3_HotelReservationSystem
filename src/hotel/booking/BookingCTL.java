@@ -135,30 +135,32 @@ public class BookingCTL {
 		}
 	}
 
-
+    // implement the creditDetailsEntered() Method
 	public void creditDetailsEntered(CreditCardType type, int number, int ccv) {
-		if (state != BookingCTL.State.CREDIT) {
+		if (state != BookingCTL.State.CREDIT)// check the credit status
+			{
                 String message = String.format("BookingCTL: bad state for booking time entered  ");
-                throw new RuntimeException(message);
+                throw new RuntimeException(message); // throw the exception is the status not found
             }
-            CreditCard currentCreditCard = new CreditCard(type, number, ccv);
+            CreditCard currentCreditCard = new CreditCard(type, number, ccv); // create the object for the CreditCard
 
          boolean approved = CreditAuthorizer.getInstance().authorize(currentCreditCard, cost);
 
-           if (!approved) {
+           if (!approved) // check the credit card approved or not
+		   { 
                String creditCardNotAuthorizedMessage = String.format("credit card number was not authorized for");
-             bookingUI.displayMessage(creditCardNotAuthorizedMessage);
+               bookingUI.displayMessage(creditCardNotAuthorizedMessage); // display the message
            } else {
              long confirmationNumber = hotel.book(room, guest, arrivalDate, stayLength, occupantNumber, currentCreditCard);
 /            String roomDescription = room.getDescription();
-              int roomNumber = room.getId();
-             String guestName = guest.getName();
-             String creditCardVendor = currentCreditCard.getVendor();
-             int cardNumber = currentCreditCard.getNumber();
+              int roomNumber = room.getId(); // get the roomid
+             String guestName = guest.getName();// get the guestname
+             String creditCardVendor = currentCreditCard.getVendor(); // get the credit card vendor detail
+             int cardNumber = currentCreditCard.getNumber(); // get the card number
 
               bookingUI.displayConfirmedBooking(roomDescription, roomNumber, arrivalDate, stayLength, guestName, creditCardVendor, cardNumber, cost, confirmationNumber);
 
-                state =BookingCTL.State.COMPLETED;
+                state =BookingCTL.State.COMPLETED; // set the state complete
                 bookingUI.setState(BookingUI.State.COMPLETED);
 		   }
         }
