@@ -1,3 +1,10 @@
+/**Developed by Kanchan Bala,  Course : MIT, Subject: Professional Programming Practices, Team Name: TeamGenius
+ * Student ID: 11635336
+ * @version 9.0.4(build 9.0.4+ 11)
+ * This test file has been created from "Hotel.java" class. and in this file JUnit testing has been performed. For that, the object of the hotel class
+ * has been created and four testing methods has been implemented and successfully tested.
+**/
+
 import hotel.credit.CreditCard;
 import java.util.Date;
 import org.junit.After;
