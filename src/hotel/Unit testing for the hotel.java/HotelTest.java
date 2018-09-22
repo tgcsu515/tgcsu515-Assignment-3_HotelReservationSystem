@@ -1,4 +1,8 @@
-
+/* name : Amandeep kaur
+Student Id: 11645658
+Lecturer name : Recep ULUSOY
+ unit testing has been performed on the HotelTest.java file .Four methods have been tested and testing is done sucessfully
+ */
 // import the library file
 import hotel.credit.CreditCard;
 import java.util.Date;
