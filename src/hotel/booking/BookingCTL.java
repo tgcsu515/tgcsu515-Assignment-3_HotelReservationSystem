@@ -135,7 +135,7 @@ public class BookingCTL {
 		}
 	}
 
-
+	/* The creditDetailsEntered() has been implemented by author: Kanchan Bala. The functionality of this method is done by following the given software specifications*/
 	public void creditDetailsEntered(CreditCardType type, int number, int ccv) {
 		if (state != BookingCTL.State.CREDIT) {
                 String message = String.format("BookingCTL: bookingTimesEntered : bad state : ");
