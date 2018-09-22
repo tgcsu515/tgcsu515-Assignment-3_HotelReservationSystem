@@ -63,4 +63,14 @@ public class BookingCTLIT {
         actualResult = bookingCTLObj.getBookingCTLState();
         assertEquals(expectedResult, actualResult);
     }
+	
+	@Test
+    public void testBookingUIState(){
+        String actualResult = "";
+        String expectedResult = "COMPLETED";
+        bookingCTLObj.setBookingCTLState();
+        bookingCTLObj.creditDetailsEntered(CreditCardType.VISA, 1234567890, 133);
+        actualResult = bookingCTLObj.getCurrentBookingUIState();
+        assertEquals(expectedResult, actualResult);
+    }
 }
