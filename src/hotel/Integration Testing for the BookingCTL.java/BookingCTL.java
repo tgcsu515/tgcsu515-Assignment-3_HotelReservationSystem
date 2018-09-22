@@ -43,6 +43,17 @@ public class BookingCTL {
         IOUtils.trace("BookingCTL: run");
         bookingUI.run();
     }
+    public void setBookingControlState() {
+        state = State.CREDIT;
+    }
+
+    public String getBookingControlState() {
+        return state.toString();
+    }
+
+    public String getBookingUIState() {
+        return bookingUI.getUIState();
+    }
 
 
 
