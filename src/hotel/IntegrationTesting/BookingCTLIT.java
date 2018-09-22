@@ -1,3 +1,10 @@
+/**Developed by Kanchan Bala,  Course : MIT, Subject: Professional Programming Practices, Team Name: TeamGenius
+ * Student ID: 11635336
+ * @version 9.0.4(build 9.0.4+ 11)
+ * This test file has been created from "BookingCTL.java" class. and in this file Integration testing has been performed. For that, the required methods 
+ * has been created,implemented and successfully tested. There are three methods which are tested.
+**/
+
 import hotel.credit.CreditCard;
 import hotel.credit.CreditCardType;
 import hotel.entities.Booking;
@@ -5,12 +12,9 @@ import hotel.entities.Guest;
 import hotel.entities.Hotel;
 import hotel.entities.Room;
 import hotel.entities.RoomType;
-import hotel.entities.ServiceType;
 import java.util.Date;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
