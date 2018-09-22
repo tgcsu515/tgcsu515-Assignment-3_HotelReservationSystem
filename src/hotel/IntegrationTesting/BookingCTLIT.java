@@ -1,0 +1,15 @@
+import hotel.credit.CreditCard;
+import hotel.credit.CreditCardType;
+import hotel.entities.Booking;
+import hotel.entities.Guest;
+import hotel.entities.Hotel;
+import hotel.entities.Room;
+import hotel.entities.RoomType;
+import hotel.entities.ServiceType;
+import java.util.Date;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
