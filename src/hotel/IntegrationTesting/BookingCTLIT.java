@@ -53,4 +53,14 @@ public class BookingCTLIT {
         }
         assertEquals(expectedExceptionMessage, actualExceptionMessage);  
     }
+	
+	@Test
+    public void testBookingCTLState(){
+        String actualResult = "";
+        String expectedResult = "COMPLETED";
+        bookingCTLObj.setBookingCTLState();
+        bookingCTLObj.creditDetailsEntered(CreditCardType.VISA, 1111222233, 122);
+        actualResult = bookingCTLObj.getBookingCTLState();
+        assertEquals(expectedResult, actualResult);
+    }
 }
