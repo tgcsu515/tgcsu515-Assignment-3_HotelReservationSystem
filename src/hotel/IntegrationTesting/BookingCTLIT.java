@@ -25,56 +25,56 @@ public class BookingCTLIT {
     Booking bookingObj;
 	
 	@Before
-    public void setUp() {
-        hotelObj = new Hotel();
-        bookingUIObj = new BookingUI(bookingCTLObj);
-        Guest newGuest = new Guest("Peter Dawson", "Melbourne", 042345224);
-        Room newRoom = new Room(1102, RoomType.SINGLE);
-        Date arrivalDate = new Date();
+    public void setUp() {//created a setup for testing
+        hotelObj = new Hotel();//created object of Hotel class
+        bookingUIObj = new BookingUI(bookingCTLObj);//created object of BookingUI
+        Guest newGuest = new Guest("Peter Dawson", "Melbourne", 042345224);//passing values to the parameters of guest
+        Room newRoom = new Room(1102, RoomType.SINGLE);//passing values to the parameters of room
+        Date arrivalDate = new Date();//creating object of date
         int stayLength = 2;
         int noOfOccupants = 1;
-        CreditCard newCreditCard = new CreditCard(CreditCardType.VISA, 234688654, 248);
-        bookingObj = new Booking(newGuest, newRoom, arrivalDate, stayLength, noOfOccupants, newCreditCard);
-        bookingCTLObj = new BookingCTL(hotelObj);
+        CreditCard newCreditCard = new CreditCard(CreditCardType.VISA, 234688654, 248);//passing values to the parameters of creditcard
+        bookingObj = new Booking(newGuest, newRoom, arrivalDate, stayLength, noOfOccupants, newCreditCard);//Create an instance of Booking class using the above parameters
+        bookingCTLObj = new BookingCTL(hotelObj);//passing the hotelObj to the object of BookingCTL
         
     }
     
     @After
     public void tearDown() {
-        bookingCTLObj = null;
+        bookingCTLObj = null;//initialize the objects with "null" value
         bookingUIObj = null;
         bookingObj = null;
     }
 	
 	@Test 
     public void testcreditDetailsEnteredRunTimeException() {
-        String actualExceptionMessage = "";
-        String expectedExceptionMessage = "BookingCTL: bookingTimesEntered : bad state : CREDIT";  
+        String actualExceptionMessage = "";//defined actual result
+        String expectedExceptionMessage = "BookingCTL: bookingTimesEntered : bad state : CREDIT";  //defined expected result
         try {
-            bookingCTLObj.creditDetailsEntered(CreditCardType.VISA, 11223, 111); 
+            bookingCTLObj.creditDetailsEntered(CreditCardType.VISA, 11223, 111);//calling creditDetailsEntered method and passing the values 
         } catch (Exception ex) {
-            actualExceptionMessage = ex.getMessage();  
+            actualExceptionMessage = ex.getMessage();  //getting the actual exception message
         }
-        assertEquals(expectedExceptionMessage, actualExceptionMessage);  
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); //comparing the actualExceptionMessage with expectedExceptionMessage 
     }
 	
 	@Test
     public void testBookingCTLState(){
-        String actualResult = "";
-        String expectedResult = "COMPLETED";
-        bookingCTLObj.setBookingCTLState();
-        bookingCTLObj.creditDetailsEntered(CreditCardType.VISA, 1111222233, 122);
-        actualResult = bookingCTLObj.getBookingCTLState();
-        assertEquals(expectedResult, actualResult);
+        String actualResult = "";//defined actual result
+        String expectedResult = "COMPLETED";  //defined expected result
+        bookingCTLObj.setBookingCTLState();//calling setBookingCTLState() 
+        bookingCTLObj.creditDetailsEntered(CreditCardType.VISA, 1111222233, 122);//calling creditDetailsEntered()
+        actualResult = bookingCTLObj.getBookingCTLState();//getting the actual result by calling getBookingCTLState()
+        assertEquals(expectedResult, actualResult);//comparing actual result with expected result
     }
 	
 	@Test
     public void testBookingUIState(){
-        String actualResult = "";
-        String expectedResult = "COMPLETED";
-        bookingCTLObj.setBookingCTLState();
-        bookingCTLObj.creditDetailsEntered(CreditCardType.VISA, 1234567890, 133);
-        actualResult = bookingCTLObj.getCurrentBookingUIState();
-        assertEquals(expectedResult, actualResult);
+        String actualResult = "";//defined actual result
+        String expectedResult = "COMPLETED";//defined expected result
+        bookingCTLObj.setBookingCTLState();//calling setBookingCTLState() 
+        bookingCTLObj.creditDetailsEntered(CreditCardType.VISA, 1234567890, 133);//calling creditDetailsEntered()
+        actualResult = bookingCTLObj.getCurrentBookingUIState();//getting the actual result by calling getBookingUIState()
+        assertEquals(expectedResult, actualResult);//comparing actual result with expected result
     }
 }
