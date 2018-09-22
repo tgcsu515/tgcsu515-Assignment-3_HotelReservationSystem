@@ -10,3 +10,15 @@ public class BookingCTLIT {
 
     BookingCTL currentBookingControl;
     Hotel currentHotel;
+	
+	@Before
+    public void setUp() {
+        currentHotel = new Hotel();
+        currentBookingControl = new BookingCTL(currentHotel);
+    }
+
+    @After
+    public void tearDown() {
+        currentBookingControl = null;
+        currentHotel = null;
+    }
