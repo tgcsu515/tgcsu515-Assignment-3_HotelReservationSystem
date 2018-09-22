@@ -38,6 +38,18 @@ public class BookingCTL {
 		this.hotel = hotel;
 		state = State.PHONE;
 	}
+	
+	public String getBookingCTLState(){
+            return state.toString();
+    }
+        
+    public String getCurrentBookingUIState(){
+            return bookingUI.getBookingUIState();
+    }
+        
+    public void setBookingCTLState(){
+            this.state = State.CREDIT;
+    }
 
 	
 	public void run() {		
