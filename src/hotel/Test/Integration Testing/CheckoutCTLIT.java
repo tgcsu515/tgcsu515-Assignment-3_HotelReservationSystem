@@ -38,5 +38,16 @@ public class CheckoutCTLIT {
         String actualcheckinCTLState = checkOutCTL.getState();
         assertEquals(expectedcheckinCTLState, actualcheckinCTLState);
     }
-    
+    /*Test of RunTimeException in CheckOutConfirmed method of CheckOutCTL class*/
+    @Test
+    public void testCreditDetailsEnteredRunTimeException() {
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "CheckoutCTL: bookingTimesEntered : bad state : null"; 
+        try {
+            checkOutCTL.creditDetailsEntered(CreditCardType.VISA, 589635478, 909);
+        } catch (Exception ex) {
+            actualExceptionMessage = ex.getMessage();
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); 
+    }
 }
