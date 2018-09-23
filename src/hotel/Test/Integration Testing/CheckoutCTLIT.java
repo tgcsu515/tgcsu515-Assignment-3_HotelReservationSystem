@@ -42,12 +42,12 @@ public class CheckoutCTLIT {
     @Test
     public void testCreditDetailsEnteredRunTimeException() {
         String actualExceptionMessage = "";
-        String expectedExceptionMessage = "CheckoutCTL: bookingTimesEntered : bad state : null"; 
+        String expectedExceptionMessage = "CheckoutCTL: bookingTimesEntered : bad state : null"; //Define expected exception message
         try {
             checkOutCTL.creditDetailsEntered(CreditCardType.VISA, 589635478, 909);
         } catch (Exception ex) {
-            actualExceptionMessage = ex.getMessage();
+            actualExceptionMessage = ex.getMessage(); //Get the actual exception message
         }
-        assertEquals(expectedExceptionMessage, actualExceptionMessage); 
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
     }
 }
