@@ -70,10 +70,11 @@ public class CheckinCTL {
 	}
 	//setState method is implemented for testing purpose By Gurpreet Gill
 	public void setState() {
-		this.state = State.CONFIRMING;
+		this.state = State.CONFIRMING; // set the state to CONFIRMING.
 	}
+	//setState method is implemented for testing purpose By Gurpreet Gill
 	public String getState() {
-		return state.toString();
+		return state.toString(); // return the current state.
 	}
 	// This method is implemented by Gurpreet Gill
 	public void checkInConfirmed(boolean confirmed) {
