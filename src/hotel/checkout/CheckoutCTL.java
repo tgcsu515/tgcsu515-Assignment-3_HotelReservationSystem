@@ -96,9 +96,38 @@ public class CheckoutCTL {
 		}		
 	}
 
-	
-	public void creditDetailsEntered(CreditCardType type, int number, int ccv) {
-		// TODO Auto-generated method stub
+	/*This Method is coded by Arashdeep Kaur. 
+	Method's functionality is according to the provided required software specialisation*/
+	public void creditDetailsEntered(CreditCardType type, int number, int ccv)
+	{
+		if (state != BookingCTL.State.CREDIT) //if condition to check the state
+		{
+                String message = String.format("BookingCTL: bookingTimesEntered : bad state : CREDIT");
+                throw new RuntimeException(message);  //throwing exception
+            }
+            CreditCard currentCreditCard = new CreditCard(type, number, ccv);  //creating object of CreditCard
+
+            boolean approved = CreditAuthorizer.getInstance().authorize(currentCreditCard, cost); //boolean function for the authorization of the card
+
+            if (!approved)  //if condition to check if the card not approved
+	    {
+                String creditCardNotAuthorizedMessage = String.format("The Credit Card Number was not Authorized.");
+                bookingUI.displayMessage(creditCardNotAuthorizedMessage); //displaying error message
+            } 
+	    else 
+	    {
+                long confirmationNumber = hotel.book(room, guest, arrivalDate, stayLength, occupantNumber, currentCreditCard);
+                String roomDescription = room.getDescription(); //getting room description
+                int roomNumber = room.getId(); //getting room Id
+                String guestName = guest.getName(); //getting name of the guest
+                String creditCardVendor = currentCreditCard.getVendor();
+                int cardNumber = currentCreditCard.getNumber();  //displaying the confirmation of the booking with the details of the customer
+				
+                bookingUI.displayConfirmedBooking(roomDescription, roomNumber, arrivalDate, stayLength, guestName, creditCardVendor, cardNumber, cost, confirmationNumber);
+
+                state =BookingCTL.State.COMPLETED; //setting the state of BookingCTL to complete
+                bookingUI.setState(BookingUI.State.COMPLETED); //setting the state of BookingUI to completed
+            }
 	}
 
 
