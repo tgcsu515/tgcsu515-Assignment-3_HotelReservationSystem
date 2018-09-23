@@ -38,7 +38,7 @@ public class CheckinCTLIT {
         String expectedcheckinCTLState = "COMPLETED"; //Define expected result
         checkinCTLObj.setState();
         checkinCTLObj.checkInConfirmed(true);//Call the method
-        String actualcheckinCTLState = checkinCTLObj.getState(); //Get the current state of booking
+        String actualcheckinCTLState = checkinCTLObj.getState(); //Get the current state
         assertEquals(expectedcheckinCTLState, actualcheckinCTLState); //Compare the  expected result with the actual result
     }
     /*Test of RunTimeException in CheckInConfirmed method of CheckInCTL class*/
