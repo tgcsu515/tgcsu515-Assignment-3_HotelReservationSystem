@@ -72,6 +72,9 @@ public class CheckinCTL {
 	public void setState() {
 		this.state = State.CONFIRMING;
 	}
+	public String getState() {
+		return state.toString();
+	}
 	// This method is implemented by Gurpreet Gill
 	public void checkInConfirmed(boolean confirmed) {
 		if (state != CheckinCTL.State.CONFIRMING) { // check the state of the CheckinCTL.
