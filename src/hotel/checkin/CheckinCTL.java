@@ -68,6 +68,10 @@ public class CheckinCTL {
 			}
 		}
 	}
+	//setState method is implemented for testing purpose By Gurpreet Gill
+	public void setState() {
+		this.state = State.CONFIRMING;
+	}
 	// This method is implemented by Gurpreet Gill
 	public void checkInConfirmed(boolean confirmed) {
 		if (state != CheckinCTL.State.CONFIRMING) { // check the state of the CheckinCTL.
