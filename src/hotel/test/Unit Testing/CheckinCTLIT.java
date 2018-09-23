@@ -41,4 +41,16 @@ public class CheckinCTLIT {
         String actualcheckinCTLState = checkinCTLObj.getState(); //Get the current state of booking
         assertEquals(expectedcheckinCTLState, actualcheckinCTLState); //Compare the  expected result with the actual result
     }
+    /*Test of RunTimeException in CheckInConfirmed method of CheckInCTL class*/
+    @Test
+    public void testCheckInConfirmedRunTimeException() {
+        String actualExceptionMessage = "";
+        String expectedExceptionMessage = "CheckInCTL: checkInConfirmed : bad state : CHECKING"; //Define expected exception message
+        try {
+            checkinCTLObj.checkInConfirmed(true);//Call the method
+        } catch (Exception ex) {
+            actualExceptionMessage = ex.getMessage(); //Get the actual exception message
+        }
+        assertEquals(expectedExceptionMessage, actualExceptionMessage); //Compare the  expected result with the actual result
+    }
 }
